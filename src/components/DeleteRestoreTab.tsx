@@ -8,6 +8,7 @@ import {
   Box,
   Skeleton,
   IconButton,
+  Tooltip
 } from '@mui/material';
 import RestoreIcon from '@mui/icons-material/Restore'; // Use this icon for restore button
 import { SnackbarMessage } from './SnackbarMessage';
@@ -86,14 +87,16 @@ const DeleteRestoreTab = () => {
                 <Typography>{file.name}</Typography>
               </CardContent>
               <CardActions sx={{ justifyContent: 'flex-end' }}>
-                <IconButton
-                  aria-label="restore file"
-                  color="primary"
-                  onClick={() => handleRestore(file.file_code)}
-                  title="Restore"
-                >
-                  <RestoreIcon />
-                </IconButton>
+                <Tooltip title="Restore">
+                  <IconButton
+                    aria-label="restore file"
+                    color="primary"
+                    onClick={() => handleRestore(file.file_code)}
+                    title="Restore"
+                  >
+                    <RestoreIcon />
+                  </IconButton>
+                </Tooltip>
                 {/* 
                 // If you prefer a button with text instead of icon, replace above with:
                 <Button size="small" variant="contained" onClick={() => handleRestore(file.file_code)}>

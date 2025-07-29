@@ -19,6 +19,7 @@ import {
   CardActions,
   IconButton,
   Skeleton,
+  Tooltip
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -182,19 +183,23 @@ const FolderManagementTab = () => {
                   <Typography>{folder.name}</Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: 'flex-end' }}>
-                  <IconButton
-                    aria-label="rename folder"
-                    onClick={() => startRenameFolder(folder.fld_id, folder.name)}
-                  >
-                    <EditIcon />
-                  </IconButton>
-                  <IconButton
-                    aria-label="delete folder"
-                    color="error"
-                    onClick={() => openDeleteConfirm(folder.fld_id)}
-                  >
-                    <DeleteIcon />
-                  </IconButton>
+                  <Tooltip title="Rename">
+                    <IconButton
+                      aria-label="rename folder"
+                      onClick={() => startRenameFolder(folder.fld_id, folder.name)}
+                    >
+                      <EditIcon />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete">
+                    <IconButton
+                      aria-label="delete folder"
+                      color="error"
+                      onClick={() => openDeleteConfirm(folder.fld_id)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </Tooltip>
                 </CardActions>
               </Card>
             </motion.div>
